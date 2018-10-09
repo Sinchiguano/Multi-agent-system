@@ -5,6 +5,6 @@ differential drive, are able to communicate via a wireless protocol. The displac
 other will be measured by the industrial cameras. The first goal of the project is to ensure the movement of the robots on x-y
 plane forming a pre-determined shape such as triangle, line, circular etc. The appropriate consensus algorithm will be performed via simulations, and then implemented. The second goal is to provide flocking with obstacle avoidance.
 <p align="left">
-<img src="https://github.com/Sinchiguano/Multi-agent-system/edit/master/INF/cesar.gif", width="720">
+<img src="https://github.com/Sinchiguano/Multi-agent-system/tree/master/INF/cesar.gif", width="720">
 </p>
 
