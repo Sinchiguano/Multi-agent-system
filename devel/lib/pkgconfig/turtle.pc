@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: turtle
+Description: Description of turtle
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/casch/turtle/devel/lib 
+Requires: 

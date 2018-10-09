@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: turtlebot_stdr
+Description: Description of turtlebot_stdr
+Version: 2.2.3
+Cflags: 
+Libs: -L/home/casch/turtle/devel/lib 
+Requires: 

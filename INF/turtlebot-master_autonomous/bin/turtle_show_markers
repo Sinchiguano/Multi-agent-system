@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+tmux new-window -t ros
+tmux send "rosrun turtlebot show_markers.py" ENTER

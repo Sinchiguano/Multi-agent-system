@@ -1,0 +1,9 @@
+<launch>
+  <group if="$(optenv TURTLE_SENSOR_ASTRA false)">
+    <include file="$(find astra_launch)/launch/astra.launch"/>
+  </group>
+
+  <group unless="$(optenv TURTLE_SENSOR_ASTRA false)">
+    <include file="$(find realsense_camera)/launch/r200_nodelet_rgbd.launch" />
+  </group>
+</launch>

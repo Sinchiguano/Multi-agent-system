@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: multi_agents
+Description: Description of multi_agents
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/casch/turtle/devel/lib 
+Requires: 

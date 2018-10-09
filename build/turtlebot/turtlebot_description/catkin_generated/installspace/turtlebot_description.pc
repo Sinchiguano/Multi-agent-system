@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/install
+
+Name: turtlebot_description
+Description: Description of turtlebot_description
+Version: 2.4.2
+Cflags: 
+Libs: -L/home/casch/turtle/install/lib 
+Requires: urdf xacro

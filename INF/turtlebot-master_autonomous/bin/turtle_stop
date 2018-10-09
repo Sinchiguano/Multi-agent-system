@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+rostopic pub /mobile_base/commands/led1 kobuki_msgs/Led "value: 0" -1
+tmux kill-session -t ros
