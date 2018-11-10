@@ -1,0 +1,14 @@
+function start_turtle()
+{
+roslaunch turtlebot_bringup minimal.launch
+roslaunch astra_launch astra.launch
+}
+function tele_turtle()
+{
+roslaunch turtlebot_teleop keyboard_teleop.launch
+}
+function trick()
+{
+catkin_make
+source source devel/setup.bash 
+}

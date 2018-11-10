@@ -347,6 +347,9 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//The directory containing a CMake configuration file for interactive_markers.
+interactive_markers_DIR:PATH=/opt/ros/kinetic/share/interactive_markers/cmake
+
 //The directory containing a CMake configuration file for joy.
 joy_DIR:PATH=/opt/ros/kinetic/share/joy/cmake
 
@@ -367,6 +370,15 @@ multi_agents_BINARY_DIR:STATIC=/home/casch/turtle/build/multi_agents
 
 //Value Computed by CMake
 multi_agents_SOURCE_DIR:STATIC=/home/casch/turtle/src/multi_agents
+
+//The directory containing a CMake configuration file for nav_msgs.
+nav_msgs_DIR:PATH=/opt/ros/kinetic/share/nav_msgs/cmake
+
+//Value Computed by CMake
+robot_coordination_BINARY_DIR:STATIC=/home/casch/turtle/build/Collective/robot_coordination
+
+//Value Computed by CMake
+robot_coordination_SOURCE_DIR:STATIC=/home/casch/turtle/src/Collective/robot_coordination
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/kinetic/share/rosconsole/cmake
@@ -403,6 +415,12 @@ rostime_DIR:PATH=/opt/ros/kinetic/share/rostime/cmake
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/kinetic/share/sensor_msgs/cmake
+
+//Value Computed by CMake
+simulator_e130_BINARY_DIR:STATIC=/home/casch/turtle/build/Collective/simulator_e130
+
+//Value Computed by CMake
+simulator_e130_SOURCE_DIR:STATIC=/home/casch/turtle/src/Collective/simulator_e130
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/kinetic/share/std_msgs/cmake
@@ -453,6 +471,12 @@ turtlebot_capabilities_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot/turt
 turtlebot_capabilities_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot/turtlebot_capabilities
 
 //Value Computed by CMake
+turtlebot_dashboard_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_interactions/turtlebot_dashboard
+
+//Value Computed by CMake
+turtlebot_dashboard_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot_interactions/turtlebot_dashboard
+
+//Value Computed by CMake
 turtlebot_description_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot/turtlebot_description
 
 //Value Computed by CMake
@@ -463,6 +487,24 @@ turtlebot_gazebo_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_simulator/
 
 //Value Computed by CMake
 turtlebot_gazebo_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot_simulator/turtlebot_gazebo
+
+//Value Computed by CMake
+turtlebot_interactions_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_interactions/turtlebot_interactions
+
+//Value Computed by CMake
+turtlebot_interactions_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot_interactions/turtlebot_interactions
+
+//Value Computed by CMake
+turtlebot_interactive_markers_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_interactions/turtlebot_interactive_markers
+
+//Value Computed by CMake
+turtlebot_interactive_markers_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot_interactions/turtlebot_interactive_markers
+
+//Value Computed by CMake
+turtlebot_rviz_launchers_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_interactions/turtlebot_rviz_launchers
+
+//Value Computed by CMake
+turtlebot_rviz_launchers_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot_interactions/turtlebot_rviz_launchers
 
 //Value Computed by CMake
 turtlebot_simulator_BINARY_DIR:STATIC=/home/casch/turtle/build/turtlebot_simulator/turtlebot_simulator
@@ -490,6 +532,9 @@ turtlebot_teleop_SOURCE_DIR:STATIC=/home/casch/turtle/src/turtlebot/turtlebot_te
 
 //The directory containing a CMake configuration file for urdf.
 urdf_DIR:PATH=/opt/ros/kinetic/share/urdf/cmake
+
+//The directory containing a CMake configuration file for visualization_msgs.
+visualization_msgs_DIR:PATH=/opt/ros/kinetic/share/visualization_msgs/cmake
 
 //The directory containing a CMake configuration file for xacro.
 xacro_DIR:PATH=/opt/ros/kinetic/share/xacro/cmake
@@ -601,7 +646,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=20
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

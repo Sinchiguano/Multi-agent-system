@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+e#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 #
@@ -21,7 +21,7 @@ import math
 
 current_position_r1 = Point(0.0,0.0,0.0)#x,y,theta
 steer_position_r1=Point(0.0,0.0,0.0)
-goal_position_r1 = Point(3,3,0.0)
+goal_position_r1 = Point(-3,3,0.0)
 pGain=0.025
 
 
