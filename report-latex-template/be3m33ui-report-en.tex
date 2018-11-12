@@ -18,7 +18,7 @@
 \begin{abstract}
 
 %%%%%%%%%%%%%%%%%
-Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this report is the one based on the leader-follower premise.
+Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
 \end{abstract}
 
 
@@ -28,7 +28,7 @@ Multi-agent system is a topic that has generated a lot interest in the research 
 
 Multi-robot systems present a more robust and cheaper solution to certain tasks that are better performed using several low-cost robots rather than a single one. This gives rise to the formation control problem. The formation problem has been regarded as an important problem in multi-robot systems where the goal is to make a fleet of autonomous mobile robots move toward and maintain a desired geometric shape. According to the survey presented in (Guanghua et al., 2013), and the references therein, formation structure can be divided into three strategies: the leader–follower strategy, the behavioural and the virtual structure approaches. Several approaches have been proposed in the literature to solve this problem. However, most of the existing literature tackle the theoretical side of the problem mainly the controller design. Nevertheless, some of them have carried on real experiments to prove the effectiveness of their proposed controller. 
 
-In this report, we propose the use of ROS as a new framework so that real experiments for the formation control problem can be conducted effectively. Due to its simplicity and scalability, the leader-follower approach is considered in this paper also. However, the proposed framework can be extended so that other formation strategies or consensus algorithm can be implemented. 
+In this paper, we propose the use of ROS as a new framework so that real experiments for the formation control problem can be conducted effectively. Due to its simplicity and scalability, the leader-follower approach is considered in this paper also. However, the proposed framework can be extended so that other formation strategies or consensus algorithm can be implemented. 
 The rest of this paper will be organized as follow: The introduction about ROS concepts is highlighted in Section II, with the software setup in Section III, followed by a detailed explanation of the software processes and the needed ROS packages are presented  in Section IV, finally conclusions drawn from this experiment and some future work directions in Section VI
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -104,54 +104,51 @@ The test space consist of two Kobuki TurtleBots. It is a low-cost, open source d
 \includegraphics[width=2in]{two.jpg}
 \caption{Two turtlebots used in the experimental test bed.}
 \end{center}
-\label{fig2:mypicture2}
+\label{fig:mypicture2}
 \end{figure}
-
-
 The Fig 2 shows two Turtlebots which are equipped with a Kinect Sensor. The robots run ROS (Robot Operating System), and are supported by various ROS libraries. 
 
-\ref{fig2:mypicture2}
-
-C.......
 
 %in process
 \begin{enumerate}
 
 \item Logistic Regression classifier
+\item Naive Bayesian Classifier
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%
-\item Naive Bayesian Classifier\\
-Wication.
 
 \begin{enumerate}
-\item Grid Search\\
-W....er and $ngram_{\_}range$ as a pahe $ngram_{\_}range$ dand $bi-grams$ in t...ns.
- 
-
-
-
-
+\item Grid Search
 \item Best parameters
-
-
-\end{enumerate}
 \end{enumerate}
 
 
 
+\end{enumerate}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%##################################################
+%#################################################
 
 \section{Software Processes}
 
-Af.......
+In addition to the basic nodes called turtlebot{\_}bringup needed for running the robots, four additional nodes are indispensable for controlling the robots to achieve formation. 
+The multi{\_}agents node for the deploying the Turtlebot robots to work with, the tf{\_}turtle responsible for keeping track of the robot's postures, multi{\_}master node for data transmission and the turtle node that executes the control algorithm. The nodes are running simultaneously and thus they have to communicate to each other through ROS topics or ROS services as depicted in fig.3. Note that on each robot, all the nodes are executed under a specific namespace for the robot. The ROS parameter ‘tf{\_}prefix’ is exclusive for each robot as well.
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{4.png}
+\caption{A rosgraph showing what talks to what.}
+\end{center}
+\label{fig2:mypicture2}
+\end{figure}
+
+
 
 \begin{enumerate}
+%>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+%subtitle.....01
 \item \textbf {Simulating Multiple Turtlebots in Gazebo}\\
 This is an example of simulating and controlling multiple Turtlebot robots. It is built as an extension of the Simulating Turtlebot tutorial on \cite{temp4}.
 
@@ -202,20 +199,18 @@ If everything was done with the commands above then it should just work. From th
 {\$} cd src/multi{\_}agents/launch \\
 which will lead you to the launch files mentioned above. All of them are binding one another. The only one that it should be launched is the one named as main.launch file which does the heavy lifting of setting up each Turtlebot. Here is a high-level outline of what this package does.
 
-main2.launch:
+main.launch:
 \begin{enumerate}
 \item {Starts Gazebo (both the sim engine and the gui)}
 \item {Start some visualization and debugging tools (rviz,rqt{\_}console, etc.)}
-\item {For each instance of a Turtlebot, setup the namespace, and define the initial}
 \item {multi{\_}agents.launch}
 
 \begin{enumerate}
-\item {Accept namespace and initial pose arguments from multihusky.launch}.
+\item {Accept namespace and initial pose arguments from one{\_}turtle.launch}.
 \item {Set the tf{\_}prefix based on the namespace}
 \item {Call a xacro robot{\_}description with namespace and tf{\_}prefix arguments}
 \item {Spawn the Turtlebot model in Gazebo using gazebo{\_}ros}
 \item {Start a robot{\_}state{\_}publiser node}
-\item {Start a static{\_}transform{\_}publisher node to establish the tf transfrom from the map to the specific odom frame.}
 \end{enumerate}
 \end{enumerate}
 Here are some screen captures and images to illustrate what you should see if things are working properly.
@@ -223,10 +218,6 @@ Here are some screen captures and images to illustrate what you should see if th
  
 
 Four Turtlebot robots in Gazebo
-
-
-
-
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=2in]{three.png}
@@ -236,10 +227,66 @@ Four Turtlebot robots in Gazebo
 \end{figure}
 
 
+\end{enumerate}
+
+
+
+%>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+%subtitle.....02
+\item \textbf {Communication data}
+
+When doing tasks with a robot it is crucial that the robot be
+aware of where it is itself as well as where the rest of the world
+is in relation to itself. For the leader-follower premise each robot takes another neighboring robot as a leader to determine its motion so that for the control laws proposed in this paper show that the leader’s relative coordinates and velocities are needed in the control laws implemented on the followers. The package called tf{\_}turtle will deal with it. It will start a static{\_}transform{\_}publisher node to establish the tf transfrom from the world to the specific odometry frame e.g robot2{\_}tf/odom.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{3.png}
+\caption{View from rqt{\_}tf{\_}tree of the tf arrangement.}
+\end{center}
+\label{fig:mypicture4}
+\end{figure}
+
+
+\begin{enumerate}
+\item \textbf {Quick Start}\\
+The robot{\_}1.launch file is a working example that initialize the transform node for two Turtlebot robots.
+You will first need to install the following packages in your workstation:
+\begin{enumerate}
+\item {geometry}\cite{temp10}.
+
+\end{enumerate}
+
+Then after you have these packages in your workspace, place the tf{\_}turtle\cite{temp11} package in your src diretory.\\
+As long as all of the system dependencies of your packages are installed, we can now build your new package.\\
+In a catkin workspace
+\begin{enumerate} 
+\item {{\$} catkin{\_}make}.
+\end{enumerate}
+
+Before continuing source your new setup.*sh file:
+\begin{enumerate}
+\item {{\$} source devel/setup.bash}.
+\end{enumerate}
+
+
 
 
 
 \end{enumerate}
+
+
+
+
+
+
+
+
+%subtitle.....03
+\item \textbf {Communication data}
+
+
+
 
 \end{enumerate}
 
@@ -250,6 +297,28 @@ Four Turtlebot robots in Gazebo
 
 \section{Conclusion}
 j.....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%
@@ -275,7 +344,10 @@ http://wiki.ros.org/kobuki
 \bibitem{temp9}
 http://wiki.ros.org/turtlebot{\_}interactions
 
+%for transform...
 \bibitem{temp10}
+https://github.com/ros/geometry
+
 \bibitem{temp11}
 
 \end{thebibliography}
@@ -287,7 +359,7 @@ http://wiki.ros.org/turtlebot{\_}interactions
 
 
 %
-%
+Please ~\ref{fig:mypicture2}
 
 I implemented in the supplied filter.py module as the function called $modified_{\_}accuracy$ which uses the confusion matrix feature to compute TP, FP, TN, FN.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.14)  11 NOV 2018 00:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.14)  12 NOV 2018 21:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,7 +130,11 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
-(./be3m33ui-report-en.aux)
+(./be3m33ui-report-en.aux
+
+LaTeX Warning: Label `fig:mypicture4' multiply defined.
+
+)
 \openout1 = `be3m33ui-report-en.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -145,8 +149,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count92
 \scratchdimen=\dimen115
@@ -237,82 +240,103 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
  <./one.jpg>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 132.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 132.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ˜ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--133
-\OT1/ptm/m/n/10 W....er and $\OML/cmm/m/it/10 ngram[]range$ \OT1/ptm/m/n/10 as 
-a pahe
- []
-
-<two.png, id=11, 1606.0pt x 903.375pt>
-File: two.png Graphic file (type png)
- <use two.png>
-Package pdftex.def Info: two.png used on input line 160.
+<4.png, id=11, 1606.0pt x 903.375pt>
+File: 4.png Graphic file (type png)
+ <use 4.png>
+Package pdftex.def Info: 4.png used on input line 141.
 (pdftex.def)             Requested size: 144.54pt x 81.30023pt.
 
-Underfull \hbox (badness 1454) in paragraph at lines 178--181
+<two.png, id=12, 1606.0pt x 903.375pt>
+File: two.png Graphic file (type png)
+ <use two.png>
+Package pdftex.def Info: two.png used on input line 157.
+(pdftex.def)             Requested size: 144.54pt x 81.30023pt.
+
+Underfull \hbox (badness 1454) in paragraph at lines 175--178
 \OT1/ptm/m/n/10 Then af-ter you have these pack-ages in your
  []
 
 
-Underfull \hbox (badness 5756) in paragraph at lines 191--192
+Underfull \hbox (badness 5756) in paragraph at lines 188--189
 []\OT1/ptm/m/n/10 To make sure your workspace is prop-erly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 \OT1/ptm/m/n/10 over-layed by the setup script, make sure
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
 \OT1/ptm/m/n/10 ROS[]PACKAGE[]PATH en-vi-ron-ment vari-able
  []
 
 
-Underfull \hbox (badness 3601) in paragraph at lines 191--192
+Underfull \hbox (badness 3601) in paragraph at lines 188--189
 \OT1/ptm/m/n/10 in-cludes the di-rec-tory you are in with the
  []
 
 
-Underfull \hbox (badness 2875) in paragraph at lines 201--204
+Underfull \hbox (badness 2875) in paragraph at lines 198--201
 []\OT1/ptm/m/n/10 If ev-ery-thing was done with the com-mands
  []
 
-<three.png, id=12, 1606.0pt x 903.375pt>
+<three.png, id=13, 1606.0pt x 903.375pt>
 File: three.png Graphic file (type png)
  <use three.png>
-Package pdftex.def Info: three.png used on input line 232.
+Package pdftex.def Info: three.png used on input line 223.
 (pdftex.def)             Requested size: 144.54pt x 81.30023pt.
- [2 <./two.jpg> <./two.png> <./three.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+[2 <./two.jpg> <./4.png> <./two.png>] <3.png, id=17, 1606.0pt x 903.375pt>
+File: 3.png Graphic file (type png)
+
+<use 3.png>
+Package pdftex.def Info: 3.png used on input line 244.
+(pdftex.def)             Requested size: 144.54pt x 81.30023pt.
+
+Underfull \hbox (badness 1454) in paragraph at lines 260--264
+[]\OT1/ptm/m/n/10 Then af-ter you have these pack-ages in your
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
 []\OT1/ptm/m/n/8 https://github.com/Sinchiguano/Multi-agent-
  []
 
-[3
+[3 <./three.png> <./3.png>] (./be3m33ui-report-en.aux)
 
-] (./be3m33ui-report-en.aux) ) 
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2084 strings out of 493029
- 32337 string characters out of 6136233
- 98341 words of memory out of 5000000
- 5624 multiletter control sequences out of 15000+600000
+ 2093 strings out of 493029
+ 32413 string characters out of 6136233
+ 99388 words of memory out of 5000000
+ 5631 multiletter control sequences out of 15000+600000
  34056 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,5n,23p,1004b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
-se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmr8a.pfb>
-Output written on be3m33ui-report-en.pdf (3 pages, 458087 bytes).
+ 37i,6n,23p,1004b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb>
+Output written on be3m33ui-report-en.pdf (3 pages, 939160 bytes).
 PDF statistics:
- 39 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 33 PDF objects out of 1000 (max. 8388607)
+ 18 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
