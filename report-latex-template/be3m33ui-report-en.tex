@@ -31,14 +31,7 @@ Multi-robot systems present a more robust and cheaper solution to certain tasks 
 In this paper, we propose the use of ROS as a new framework so that real experiments for the formation control problem can be conducted effectively. Due to its simplicity and scalability, the leader-follower approach is considered in this paper also. However, the proposed framework can be extended so that other formation strategies or consensus algorithm can be implemented. 
 The rest of this paper will be organized as follow: The introduction about ROS concepts is highlighted in Section II, with the software setup in Section III, followed by a detailed explanation of the software processes and the needed ROS packages are presented  in Section IV, finally conclusions drawn from this experiment and some future work directions in Section VI
 
-%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%
 
-
-\begin{enumerate}
-\item \textbf{Log.....}
-
-Gi \cite{temp1}........
 
 \begin{figure}[!h]
 \begin{center}
@@ -50,25 +43,16 @@ Gi \cite{temp1}........
 
 
 %%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%
-\item \textbf{AdaBoost classifier}
-
-AdaBoost........:
 
 
+\begin{enumerate}
+\item \textbf{.......}
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%
-\item \textbf{Random Forest classifier}
-
-Th.......
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%
-\item \textbf{Naive Bayesian (NB) Classifier}
+\item \textbf{....}
 
 
 \end{enumerate}
@@ -85,9 +69,8 @@ ROS is a flexible framework for writing robot software. It is a collection of to
 
 
 
-\item \textbf{Architecture of the System}
+\item \textbf{Architecture of the System}\\
 
-T.........
 
 \end{enumerate}
 
@@ -97,7 +80,7 @@ T.........
 %working on
 \section{Experimental setup}
 
-The test space consist of two Kobuki TurtleBots. It is a low-cost, open source differential drive robot. It consists of a mobile base, an RGB-D sensor and an CPU making it a perfect entry-level mobile robot platform. The Kobuki was chosen because it is an open source UGV (Unmanned ground vehicle) platform, making it perfect for research and development. The Kobuki SDK (Software development kit) is based on ROS, which is the preferred development platform by the Intelligent and Mobile Robotics Group because of its intuitive publisher/subscriber message passing structure that allows robust and simple communication within multiple facets of a robotic system.
+The test space consist of two Kobuki TurtleBots. It is a low-cost, open source differential drive robot. It consists of a mobile base, a RGB-D sensor and a CPU making it a good  entry-level mobile robot platform. The Kobuki was chosen because it is an open source UGV (Unmanned ground vehicle) platform, making it perfect for research and development. The Kobuki SDK (Software development kit) is based on ROS, which is the preferred development platform by the Intelligent and Mobile Robotics Group because of its intuitive publisher/subscriber message passing structure that allows robust and simple communication within multiple  facets of a robotic system. The Fig 2 shows two Turtlebot robots which are equipped with Kinect Sensors. The robots run ROS (Robot Operating System), and are supported by various ROS libraries. 
 
 \begin{figure}[!h]
 \begin{center}
@@ -106,24 +89,9 @@ The test space consist of two Kobuki TurtleBots. It is a low-cost, open source d
 \end{center}
 \label{fig:mypicture2}
 \end{figure}
-The Fig 2 shows two Turtlebots which are equipped with a Kinect Sensor. The robots run ROS (Robot Operating System), and are supported by various ROS libraries. 
-
-
-%in process
-\begin{enumerate}
-
-\item Logistic Regression classifier
-\item Naive Bayesian Classifier
-
-
-\begin{enumerate}
-\item Grid Search
-\item Best parameters
-\end{enumerate}
 
 
 
-\end{enumerate}
 
 
 
@@ -135,7 +103,7 @@ The Fig 2 shows two Turtlebots which are equipped with a Kinect Sensor. The robo
 \section{Software Processes}
 
 In addition to the basic nodes called turtlebot{\_}bringup needed for running the robots, four additional nodes are indispensable for controlling the robots to achieve formation. 
-The multi{\_}agents node for the deploying the Turtlebot robots to work with, the tf{\_}turtle responsible for keeping track of the robot's postures, multi{\_}master node for data transmission and the turtle node that executes the control algorithm. The nodes are running simultaneously and thus they have to communicate to each other through ROS topics or ROS services as depicted in fig.3. Note that on each robot, all the nodes are executed under a specific namespace for the robot. The ROS parameter ‘tf{\_}prefix’ is exclusive for each robot as well.
+The multi{\_}agents node for deploying the Turtlebot robots to work with, the tf{\_}turtle responsible for keeping track of the robot's postures, multi{\_}master node for data transmission and the turtle node that executes the control algorithm. The nodes are running simultaneously and thus they have to communicate to each other through ROS topics or ROS services as depicted in fig.3. Note that on each robot, all the nodes are executed under a specific namespace for the robot. The ROS parameter ‘tf{\_}prefix’ is exclusive for each robot as well.
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=2in]{4.png}
@@ -233,7 +201,7 @@ Four Turtlebot robots in Gazebo
 
 %>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 %subtitle.....02
-\item \textbf {Communication data}
+\item \textbf {Transform}
 
 When doing tasks with a robot it is crucial that the robot be
 aware of where it is itself as well as where the rest of the world
@@ -269,10 +237,6 @@ Before continuing source your new setup.*sh file:
 \item {{\$} source devel/setup.bash}.
 \end{enumerate}
 
-
-
-
-
 \end{enumerate}
 
 
@@ -283,9 +247,72 @@ Before continuing source your new setup.*sh file:
 
 
 %subtitle.....03
-\item \textbf {Communication data}
+\item \textbf {Communication data}\\
+A robust communication between the Turtlebot robots is needed in order to transmit the leader’s postures and velocities to its follower. These data are essential for controlling the follower to keep the desired separation and bearing with the leader. The leader-follower premise is implemented using two methods: (1)Single-master system, and (2)multi-master system. The methods aforementioned make use of the distributed computing and communication architecture of the Robot Operating System (ROS). The detail of each implementation and their respective use are presented next in this section. 
+
+\begin{enumerate} 
+\item \textbf {Single Master System}\\
+
+In a single master system, ROSCORE runs on one machine
+which is called the master. Other nodes work in a distributed similar fashion on different machines. The nodes can run anywhere on the network except the driver nodes, which runs on the system that is directly connected to the hardware. All the nodes need to connect to the master. They connect via ROS{\_}MASTER{\_}URI which can be set in .bashrc file of the respective machines as shown below. All the machines in the network have a bidirectional connection with each other. Also, the host IP and the master IP will be same in case of the master machine.
 
 
+\begin{enumerate}
+\item \textbf {Quick Start}\\
+The following commands are required to be executed to activate the single master system:
+\textbf{For computer one (turtlebot@turtle01)}.
+export ROS{\_}MASTER{\_}URI=http://10.37.2.152 :11311\\
+export ROS{\_}IP=10.37.2.152\\
+\textbf{For computer two (turtlebot@turtle02)}.
+export ROS{\_}MASTER{\_}URI=http://10.37.2.152 :11311\\
+export ROS{\_}IP=10.37.2.243
+\end{enumerate}
+For more details about NetworkSetup the reader to should refer to the ROS/NetworkSetup \cite{temp11}
+
+
+\item \textbf {Multi Master System}
+
+Many of the limitations of a single master system can
+be overcome by having multiple masters running their own
+independent roscore. This makes
+the system robust as the failure of one will not lead to the
+failure of the complete system. Since the visibility of topics is
+limited to the scope of each roscore environment, there are
+no namespace conflict with topics in a multi-master system.
+
+To implement a multi-master System, a package called
+multimaster{\_}fkie is needed [12] and is already installed from source in each one of the Turtlebot. This allows two important pro-cesses, master{\_}discovery and master{\_}sync to run
+simultaneously. The function of master{\_}discovery is to
+send multicast messages to the network so that all roscore
+environments become aware of each other. The other process called master{\_}sync enables us to select which topics can shared between different roscore. Without master{\_}sync node, no information can be accessed by other roscores. 
+
+\begin{enumerate}
+\item \textbf {Quick Start}\\
+The following commands are required to be executed to activate multi-master mode in each machine.
+
+\textbf{For computer one (turtlebot@turtle01)}.
+export ROS{\_}MASTER{\_}URI=http://localhost :11311\\
+export ROS{\_}IP=10.37.2.152\\
+rosrun master{\_}discovery{\_}fkie master{\_}discovery
+rosrun master{\_}sync{\_}fkie master{\_}sync
+
+
+
+\textbf{For computer two (turtlebot@turtle02)}.
+export ROS{\_}MASTER{\_}URI=http://localhost :11311\\
+export ROS{\_}IP=10.37.2.243\\
+rosrun master{\_}discovery{\_}fkie master{\_}discovery
+rosrun master{\_}sync{\_}fkie master{\_}sync
+\end{enumerate}
+For more details about the configuration of the multi-master System, the reader to should refer to multimaster{\_}fkie\cite{temp11}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{5.png}
+\caption{A view of a successfull setup of the multimaster{\_}fkie.}
+\end{center}
+\label{fig:mypicture4}
+\end{figure}
 
 
 \end{enumerate}
@@ -295,14 +322,22 @@ Before continuing source your new setup.*sh file:
 
 
 
+
+
+
+
+
+\end{enumerate}
 \section{Conclusion}
-j.....
 
 
-
-
-
-
+Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
+The details of implementation for both simulation as well
+as actual experiment is provided which will be useful for
+students and practicing engineers alike. These details provide
+an insight into the working of each of the these modes of
+operation allowing us to identify the strengths and weaknesses
+of each one of them.
 
 
 
@@ -344,12 +379,15 @@ http://wiki.ros.org/kobuki
 \bibitem{temp9}
 http://wiki.ros.org/turtlebot{\_}interactions
 
-%for transform...
 \bibitem{temp10}
 https://github.com/ros/geometry
 
 \bibitem{temp11}
+http://wiki.ros.org/ROS/NetworkSetup
 
+
+\bibitem{temp12}
+multimaster FKIE, http://wiki.ros.org/multimaster{\_}fkie
 \end{thebibliography}
 
 \end{document}
