@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/install
+
+Name: robot_coordination
+Description: Description of robot_coordination
+Version: 0.0.0
+Cflags: -I/home/casch/turtle/install/include
+Libs: -L/home/casch/turtle/install/lib 
+Requires: 

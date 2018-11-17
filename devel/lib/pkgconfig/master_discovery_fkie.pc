@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: master_discovery_fkie
+Description: Description of master_discovery_fkie
+Version: 0.8.2
+Cflags: 
+Libs: -L/home/casch/turtle/devel/lib 
+Requires: multimaster_msgs_fkie std_srvs

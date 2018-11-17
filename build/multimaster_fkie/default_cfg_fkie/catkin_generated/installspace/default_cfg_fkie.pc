@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/install
+
+Name: default_cfg_fkie
+Description: Description of default_cfg_fkie
+Version: 0.8.2
+Cflags: 
+Libs: -L/home/casch/turtle/install/lib 
+Requires: multimaster_msgs_fkie roslaunch roslib rospy

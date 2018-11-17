@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: stdr_launchers
+Description: Description of stdr_launchers
+Version: 0.3.2
+Cflags: 
+Libs: -L/home/casch/turtle/devel/lib 
+Requires: 

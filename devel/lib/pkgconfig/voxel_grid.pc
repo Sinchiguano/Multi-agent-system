@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/devel
+
+Name: voxel_grid
+Description: Description of voxel_grid
+Version: 1.16.2
+Cflags: -I/home/casch/turtle/src/navigation/voxel_grid/include
+Libs: -L/home/casch/turtle/devel/lib -lvoxel_grid
+Requires: roscpp
