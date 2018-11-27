@@ -1,0 +1,78 @@
+%% modified for B3M33UI at FEL CVUT
+%% bare_jrnl.tex
+%% V1.2
+%% 2002/11/18
+%% by Michael Shell
+%% mshell@ece.gatech.edu
+\documentclass[journal]{IEEEtrancz}
+\usepackage{graphicx}
+\usepackage[cp1250]{inputenc}
+\usepackage[T1]{fontenc}
+
+\begin{document}
+%
+% paper title
+\title{Název ...}
+\author{František UI}
+
+\markboth{SEMESTRÁLNÍ PRÁCE, PØEDMÌT B3M33UI, ÈESKÉ VYSOKÉ UÈENÍ TECHNICKÉ V PRAZE, 2016/17}{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+\maketitle
+
+
+\begin{abstrakt}
+Krátký abstrakt - popis problému, vašeho øešení a výsledkù v nìkolika vìtách. Reklama na èlánek.
+\end{abstrakt}
+
+\section{Zadání}
+Zadání problému specifikované vaším uèitelem.
+
+\section{Úvod}
+%
+Popis toho, co o problému víte. Pøíklad odkazu na literaturu \cite{IEEEhowto:kopka}.
+
+\begin{table}[b]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+\caption{Ukázková tabulka s ukázkovým popisem}
+\label{tab:tabulka1}
+\centering
+% Some packages, such as MDW tools, offer better commands for making tables
+% than the plain LaTeX2e tabular which is used here.
+\begin{tabular}{|c||c|}
+\hline
+Jedna & Dvì\\
+\hline
+Honza & jde\\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Zpùsob øešení}
+Popište, jakým zpùsobem úlohu budete øešit, jaké algoritmy použijete a proè, jaká mìøítka kvality budete používat a proè, jak nastavíte jednotlivé algoritmy a proè, ...
+
+\section{Experimenty}
+Popis provedených experimentù a jejich výsledkù
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{figure.pdf}
+%\includegraphics[width=2in]{figure.eps} %to texify use eps
+\caption{Ukázkový graf a jeho popisek}
+\end{center}\label{fig:obrazekskrivkou}
+\end{figure}
+
+\section{Diskuse}
+Co øíkají výsledky? Jsou oèekávané? Jaká jsou možná vysvìtlení pozorovaných jevù?
+
+\section{Závìr}
+Shrnutí provedených prací a dosažených výsledkù.
+
+\begin{literatura}{1}
+
+\bibitem{IEEEhowto:kopka}
+Author P., Author M.: \emph{Book title}, published by and other info, 2002.
+
+\end{literatura}
+
+\end{document}
+
+

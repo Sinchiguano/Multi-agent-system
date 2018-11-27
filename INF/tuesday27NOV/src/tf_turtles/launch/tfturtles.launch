@@ -1,0 +1,12 @@
+
+<launch>
+
+
+  <!-- BEGIN ROBOT 1-->
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot1">
+      <param name="tf_prefix" value="robot1" />
+      <node pkg="tf" type="static_transform_publisher" name="link_broadcaster" args="0 0 0 0 0 0 /robot1/odom /robot2/odom 100" />
+  </group>
+
+</launch>

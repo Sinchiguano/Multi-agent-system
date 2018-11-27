@@ -1,0 +1,10 @@
+  <launch>
+
+    <node pkg="tf" type="static_transform_publisher" name="world_frames_connection1" args="0 0 0 0 0 0 world robot1_tf/odom 100"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="world_frames_connection2" args="4 0 0 0 0 0 world robot2_tf/odom 100"/>
+	
+    <param name="/use_sime_time" value="true"/>
+
+
+  </launch>
