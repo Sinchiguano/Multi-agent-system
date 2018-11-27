@@ -1,0 +1,8 @@
+prefix=/home/casch/turtle/install
+
+Name: rosnet
+Description: Description of rosnet
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/casch/turtle/install/lib 
+Requires: 

@@ -26,36 +26,21 @@ Multi-agent system is a topic that has generated a lot interest in the research 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Multi-robot systems present a more robust and cheaper solution to certain tasks that are better performed using several low-cost robots rather than a single one. This gives rise to the formation control problem. The formation problem has been regarded as an important problem in multi-robot systems where the goal is to make a fleet of autonomous mobile robots move toward and maintain a desired geometric shape. According to the survey presented in (Guanghua et al., 2013), and the references therein, formation structure can be divided into three strategies: the leader–follower strategy, the behavioural and the virtual structure approaches. Several approaches have been proposed in the literature to solve this problem. However, most of the existing literature tackle the theoretical side of the problem mainly the controller design. Nevertheless, some of them have carried on real experiments to prove the effectiveness of their proposed controller. 
+Multi-robot systems present a more robust and cheaper solution to certain tasks that are better performed using several low-cost robots rather than a single one. This gives rise to the formation control problem. The formation problem has been regarded as an important problem in multi-robot systems where the goal is to make a fleet of autonomous mobile robots move toward and maintain a desired geometric shape. According to the survey presented in (Guanghua et al., 2013)\cite{temp1}, and the references therein, formation structure can be divided into three strategies: the leader–follower strategy, the behavioural and the virtual structure approaches. Several approaches have been proposed in the literature to solve this problem. However, most of the existing literature tackle the theoretical side of the problem mainly the controller design. Nevertheless, some of them have carried on real experiments to prove the effectiveness of their proposed controller. 
 
 In this paper, we propose the use of ROS as a new framework so that real experiments for the formation control problem can be conducted effectively. Due to its simplicity and scalability, the leader-follower approach is considered in this paper also. However, the proposed framework can be extended so that other formation strategies or consensus algorithm can be implemented. 
-The rest of this paper will be organized as follow: The introduction about ROS concepts is highlighted in Section II, with the software setup in Section III, followed by a detailed explanation of the software processes and the needed ROS packages are presented  in Section IV, finally conclusions drawn from this experiment and some future work directions in Section VI
+The rest of this paper will be organized as follow: The introduction about ROS concepts is highlighted in Section II, with the software setup in Section III, followed by a detailed explanation of the software processes and the needed ROS packages are presented  in Section IV, finally conclusions drawn from this experiment and some future work directions in Section V
 
 
 
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=2in]{one.jpg}
-\caption{An example of multi-agent system. \cite{temp1}}
+\caption{An example of multi-agent system.}
 \end{center}
 \label{fig:mypicture1}
 \end{figure}
 
-
-%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{enumerate}
-\item \textbf{.......}
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%
-\item \textbf{....}
-
-
-\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -64,12 +49,37 @@ The rest of this paper will be organized as follow: The introduction about ROS c
 \section{Backgroung}
 %done
 \begin{enumerate}
-\item \textbf{Robotic Operating System (ROS)}\\
-ROS is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behaviour across a wide variety of robotic platforms . It is based on the concepts of nodes, topics, messages and services. A node is an executable program that performs computation. Nodes need to communicate with each other to complete the whole task. The communicated data are called messages. ROS provides an easy way for passing messages and establishing communication links between nodes, which are running independently. They pass these messages to each other over a Topic, which is a simple string. However, topics are asynchronous, synchronous communication is provided by services. Services act in a call-response manner where one node requests that another node execute a one-time computation and provide a response. For more details about ROS, the reader can refer to \cite{temp2}.
+\item \textbf{Robotic Operating System (ROS)}
+
+ROS is a flexible framework for writing robot software. It is a collection of tools, libraries, and conventions that aim to simplify the task of creating complex and robust robot behaviour across a wide variety of robotic platforms. It is based on the concepts of nodes, topics, messages and services. A node is an executable program that performs computation. Nodes need to communicate with each other to complete the whole task. The communicated data are called messages. ROS provides an easy way for passing messages and establishing communication links between nodes, which are running independently. They pass these messages to each other over a Topic, which is a simple string. However, topics are asynchronous, synchronous communication is provided by services. Services act in a call-response manner where one node requests that another node execute a one-time computation and provide a response. For more details about ROS, the reader can refer to \cite{temp2}.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{6.png}
+\caption{A ROS Overview \cite{temp2}}
+\end{center}
+%\label{fig2:mypicture3}
+\end{figure}
 
 
 
-\item \textbf{Architecture of the System}\\
+
+\item \textbf{Architecture of the System}
+
+
+
+The objective of this section is to introduce an architecture for coordinating multi-agent systems. The proposed architecture subsumes leader-following approach, where one of the vehicles (Turtlebot robot or agent) is designated as the leader, with the rest of the vehicle designated as followers.The proposed architecture is modular.
+
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{1.jpeg}
+\caption{Leader-Follower Premise.}
+\end{center}
+\label{fig:mypicture2}
+\end{figure}
+
+
 
 
 \end{enumerate}
@@ -104,6 +114,7 @@ The test space consist of two Kobuki TurtleBots. It is a low-cost, open source d
 
 In addition to the basic nodes called turtlebot{\_}bringup needed for running the robots, four additional nodes are indispensable for controlling the robots to achieve formation. 
 The multi{\_}agents node for deploying the Turtlebot robots to work with, the tf{\_}turtle responsible for keeping track of the robot's postures, multi{\_}master node for data transmission and the turtle node that executes the control algorithm. The nodes are running simultaneously and thus they have to communicate to each other through ROS topics or ROS services as depicted in fig.3. Note that on each robot, all the nodes are executed under a specific namespace for the robot. The ROS parameter ‘tf{\_}prefix’ is exclusive for each robot as well.
+
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[width=2in]{4.png}
@@ -332,6 +343,7 @@ For more details about the configuration of the multi-master System, the reader 
 
 
 Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
+
 The details of implementation for both simulation as well
 as actual experiment is provided which will be useful for
 students and practicing engineers alike. These details provide
@@ -339,7 +351,10 @@ an insight into the working of each of the these modes of
 operation allowing us to identify the strengths and weaknesses
 of each one of them.
 
+Multi-master system solution is proposed to facilitate the communication amongst the agents based on decentralized architecture by using the FKIE package. The main advantages of the presented solution are modularity and its wide applicability. Modularity allows to increase the number of robots with its own rosmaster capability without modifying it from the core or facing the problems presented with a single ros-master system.  Moreover, the proposed multi-master solution permits to accomplish the assigned mission also in case of communication or vehicle faults. Thanks to the FKIE package the formation of vehicles are both more fault tolerant (through redundancy achieved with a multi-master system) and more efficient (through parallelism) than single vehicles.
 
+
+As recommendation to successfully accomplish the coordination tasks, particular attention must be paid to the localization problem. Indeed, the most straightforward approach for performing formation control would be to measure the absolute position of each agent and use that information to keep the relative distances at the desired values. This approach, however, can not be used for the Turtlebot vehicle as the odometry sensor is prone to uncertainty in its measurement, and thus a suitable localization procedure is necessary.
 
 
 
@@ -363,7 +378,10 @@ of each one of them.
 \begin{thebibliography}{1}
 
 \bibitem{temp1}
+https://www.researchgate.net/publication/261160544{\_}Study{\_}on{\_}Formation{\_}Control{\_}of{\_}Multi-Robot{\_}Systems
 \bibitem{temp2}
+https://blogs.mathworks.com/racing-lounge/2017/11/08/matlab-simulink-ros/
+
 \bibitem{temp3}
 http://www.ros.org/about-ros/
 \bibitem{temp4}
@@ -386,8 +404,13 @@ https://github.com/ros/geometry
 http://wiki.ros.org/ROS/NetworkSetup
 
 
+
 \bibitem{temp12}
 multimaster FKIE, http://wiki.ros.org/multimaster{\_}fkie
+
+\bibitem{temp13}
+
+
 \end{thebibliography}
 
 \end{document}
