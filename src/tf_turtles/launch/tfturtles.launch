@@ -1,0 +1,9 @@
+
+<launch>
+
+  <node pkg="tf" type="static_transform_publisher" name="link_broadcaster" args="-2 0 0 0 0 0 /robot1/odom /robot2/odom 100" />
+
+
+
+
+</launch>
