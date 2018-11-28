@@ -110,14 +110,14 @@ def main():
     #Subscriber to the rgb, rgbd, point cloud data and informations of the first two of them...
     # rospy.Subscriber('/camera/rgb/image_raw', Image, callback_rgb)
     # rospy.Subscriber('/camera/depth/image_raw', Image, callback_depth)
-    rospy.Subscriber('/camera/depth/points', PointCloud2, callback_pointCloud)
+    rospy.Subscriber('robot1/camera/depth/points', PointCloud2, callback_pointCloud)
 
     # rospy.Subscriber('/camera/depth/camera_info', CameraInfo,infoDepthCallback)
     # rospy.Subscriber('/camera/rgb/camera_info', CameraInfo,infoColorCallback)
 
     #Declares that your node is publishing to the cmd/input/navi topic using the message type Twist.
     #pub1 = rospy.Publisher('/robot1/mobile_base/commands/velocity', Twist, queue_size=10)
-    pub = rospy.Publisher('/mobile_base/commands/velocity', Twist, queue_size=10)
+    pub = rospy.Publisher('robot1/mobile_base/commands/velocity', Twist, queue_size=10)
     rate = rospy.Rate(10)
 
     velo_cmd = Twist()
@@ -176,12 +176,12 @@ def main():
         if data.size > 50:
             dist = np.percentile(data, 10)
             print(dist)
-            if dist < 0.8:
+            if dist < 0.6:
                 state = ROTATE
 
         # command velocity
         if active and state == MOVE:
-            velo_cmd.linear.x = 0.4
+            velo_cmd.linear.x = 0.2
             velo_cmd.angular.z = 0.0
             pub.publish(velo_cmd)
             direction = None
@@ -190,9 +190,9 @@ def main():
             if direction is None:
                 direction = np.sign(np.random.rand() - 0.5)
             velo_cmd.linear.x = 0.0
-            velo_cmd.angular.z = 0.5*direction
+            velo_cmd.angular.z = 0.2*direction
             pub.publish(velo_cmd)
-        ros.sleep()
+        rate.sleep()
 
     #close any open windows
     cv2.destroyAllWindows()

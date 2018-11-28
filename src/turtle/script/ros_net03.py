@@ -201,38 +201,38 @@ def main():
             pub_Vel_r2.publish(velR2)
 
 
-        try:
-            #listener_r2.waitForTransform('/robot2/base_footprint','/robot1/base_footprint', rospy.Time(0), rospy.Duration(5))
-            trans3,rot3= listener_r3.lookupTransform('/robot3/base_footprint','/robot2/base_footprint',  rospy.Time(0))
-        except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-            continue
-
-        #turtle3
-        #===========
-        angular3 = k3* math.atan2(trans3[1], trans3[0])
-        linear3 = l3* math.sqrt(trans3[0] ** 2 + trans3[1] ** 2)
-
-        #distance from the leader
-        dist_from_leader3= math.sqrt(trans3[0] ** 2 + trans3[1] ** 2)
-        print('turtle3',dist_from_leader3)
-        #Limit the angular velocity
-        if (angular3>0.3):
-            angular3=0.3
-        elif (angular3<-0.3):
-            angular3=-0.3
-
-        if (linear3>0.2):
-            linear3=0.2
-
-        if dist_from_leader3>0.8:
-            velR3.linear.x=2*linear3
-            velR3.angular.z =1.5* angular3
-            pub_Vel_r3.publish(velR3)
-
-        else:
-            velR3.linear.x=0
-            velR3.angular.z =0
-            pub_Vel_r3.publish(velR3)
+        # try:
+        #     #listener_r2.waitForTransform('/robot2/base_footprint','/robot1/base_footprint', rospy.Time(0), rospy.Duration(5))
+        #     trans3,rot3= listener_r3.lookupTransform('/robot3/base_footprint','/robot2/base_footprint',  rospy.Time(0))
+        # except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
+        #     continue
+        #
+        # #turtle3
+        # #===========
+        # angular3 = k3* math.atan2(trans3[1], trans3[0])
+        # linear3 = l3* math.sqrt(trans3[0] ** 2 + trans3[1] ** 2)
+        #
+        # #distance from the leader
+        # dist_from_leader3= math.sqrt(trans3[0] ** 2 + trans3[1] ** 2)
+        # print('turtle3',dist_from_leader3)
+        # #Limit the angular velocity
+        # if (angular3>0.3):
+        #     angular3=0.3
+        # elif (angular3<-0.3):
+        #     angular3=-0.3
+        #
+        # if (linear3>0.2):
+        #     linear3=0.2
+        #
+        # if dist_from_leader3>0.8:
+        #     velR3.linear.x=2*linear3
+        #     velR3.angular.z =1.5* angular3
+        #     pub_Vel_r3.publish(velR3)
+        #
+        # else:
+        #     velR3.linear.x=0
+        #     velR3.angular.z =0
+        #     pub_Vel_r3.publish(velR3)
 
         rate.sleep()
         rospy.loginfo("Moving into goal pose!!!")
