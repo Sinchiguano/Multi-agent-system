@@ -18,7 +18,7 @@
 \begin{abstract}
 
 %%%%%%%%%%%%%%%%%
-Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
+Multi-agent system is a topic that has generated a lot of interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
 \end{abstract}
 
 
@@ -67,8 +67,7 @@ ROS is a flexible framework for writing robot software. It is a collection of to
 \item \textbf{Architecture of the System}
 
 
-
-The objective of this section is to introduce an architecture for coordinating multi-agent systems. The proposed architecture subsumes leader-following approach, where one of the vehicles (Turtlebot robot or agent) is designated as the leader, with the rest of the vehicle designated as followers.The proposed architecture is modular.
+The objective of this section is to introduce an architecture for coordinating multi-agent systems. The proposed architecture subsumes the leader-follower approach. Leader-follower approach is one of the several types of formation control, is applied as the basis for multiple wheeled robots and unmanned aerial vehicles (UAVs) where one of the vehicles (Turtlebot robot in our case) is designated as the leader, with the rest of the vehicle designated as followers. The proposed architecture is modular.
 
 
 \begin{figure}[!h]
@@ -80,6 +79,14 @@ The objective of this section is to introduce an architecture for coordinating m
 \end{figure}
 
 
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{7.png}
+\caption{Leader-Follower Premise.}
+\end{center}
+\label{fig:mypicture2}
+\end{figure}
 
 
 \end{enumerate}
@@ -216,7 +223,18 @@ Four Turtlebot robots in Gazebo
 
 When doing tasks with a robot it is crucial that the robot be
 aware of where it is itself as well as where the rest of the world
-is in relation to itself. For the leader-follower premise each robot takes another neighboring robot as a leader to determine its motion so that for the control laws proposed in this paper show that the leader’s relative coordinates and velocities are needed in the control laws implemented on the followers. The package called tf{\_}turtle will deal with it. It will start a static{\_}transform{\_}publisher node to establish the tf transfrom from the world to the specific odometry frame e.g robot2{\_}tf/odom.
+is in relation to itself. For the leader-follower premise each robot takes another neighboring robot as a leader to determine its motion so that for the control laws proposed in this paper show that the leader’s relative coordinates and velocities are needed in the control laws implemented on the followers. The package called tf{\_}turtle will deal with it. It will start a static{\_}transform{\_}publisher node to establish the tf transfrom from the world to the specific odometry frame e.g robot2{\_}tf/odom.\\
+The tf{\_}turtle nodes communicate with each other by sending messages that contain a transformation from one frame to another. In standard robotics terms, this means sending a translation and a rotation regarding a base frame.
+
+The tf{\_}turtle nodes use the TF transform library that keeps track of one or several coordinate frames of a robot (or a multi-robot system), TF is one of the most basic (and useful) packages in ROS.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=2in]{robot4.png}
+\caption{View in Rviz of the transform of the tf arrangment.}
+\end{center}
+\label{fig:mypicture2}
+\end{figure}
 
 \begin{figure}[!h]
 \begin{center}
@@ -360,7 +378,7 @@ For more details about the configuration of the multi-master System, the reader 
 \section{Conclusion}
 
 
-Multi-agent system is a topic that has generated a lot interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
+Multi-agent system is a topic that has generated a lot of interest in the research community. This interest is because a multi-agent systems present a more robust and cheaper solution to a certain tasks that are better performed using several low-cost robots rather than a single one. Multi-agent system can be achieved through many approaches. The approach used in this paper is the one based on the leader-follower premise.
 
 The details of implementation for both simulation as well
 as actual experiment is provided which will be useful for
@@ -369,7 +387,7 @@ an insight into the working of each of the these modes of
 operation allowing us to identify the strengths and weaknesses
 of each one of them.
 
-Multi-master system solution is proposed to facilitate the communication amongst the agents based on decentralized architecture by using the FKIE package. The main advantages of the presented solution are modularity and its wide applicability. Modularity allows to increase the number of robots with its own rosmaster capability without modifying it from the core or facing the problems presented with a single ros-master system.  Moreover, the proposed multi-master solution permits to accomplish the assigned mission also in case of communication or vehicle faults. Thanks to the FKIE package the formation of vehicles are both more fault tolerant (through redundancy achieved with a multi-master system) and more efficient (through parallelism) than single vehicles.
+The multi-master system is proposed to facilitate the communication amongst the agents based on decentralized architecture by using the FKIE package. The main advantages of the presented solution are modularity and its wide applicability. Modularity allows to increase the number of robots with its own rosmaster capability without modifying it from the core or facing the problems presented with a single ros-master system.  Moreover, the proposed multi-master solution permits to accomplish the assigned mission also in case of communication or vehicle faults. Thanks to the FKIE package the formation of vehicles are both more fault tolerant (through redundancy achieved with a multi-master system) and more efficient (through parallelism) than single vehicles.
 
 
 As recommendation to successfully accomplish the coordination tasks, particular attention must be paid to the localization problem. Indeed, the most straightforward approach for performing formation control would be to measure the absolute position of each agent and use that information to keep the relative distances at the desired values. This approach, however, can not be used for the Turtlebot vehicle as the odometry sensor is prone to uncertainty in its measurement, and thus a suitable localization procedure is necessary.
@@ -422,12 +440,52 @@ https://github.com/ros/geometry
 http://wiki.ros.org/ROS/NetworkSetup
 
 
-
+%just papers
 \bibitem{temp12}
 multimaster FKIE, http://wiki.ros.org/multimaster{\_}fkie
 
+
+
+
 \bibitem{temp13}
-https://link.springer.com/chapter/10.1007/978-3-319-10401-0{\_}6
+Control of the Mobile Robots with ROS in Robotics Courses\\
+https://www.sciencedirect.com/science/article/pii/S1877705815005469
+\bibitem{temp14}
+ROS TF tutorial\\
+http://enesbot.me/ros-tf2-tutorial.html
+
+
+\bibitem{temp15}
+https://www.instructables.com/id/Autonomous-Mobile-Robot-Using-ROS/\\
+Autonomous Mobile Robot Using ROS Clumsybot
+\bibitem{temp16}
+https://robots.ros.org/
+\bibitem{temp17}
+A Geometric Characterization of Leader-Follower Formation Control
+Luca Consolini, Fabio Morbidi, Domenico Prattichizzo, Mario Tosques
+
+
+
+
+\bibitem{temp18}
+
+Adaptive Image-Based Leader-Follower Approach of Mobile Robot with Omnidirectional Camera\\ https://www.hindawi.com/journals/jam/2015/194251/:
+
+\bibitem{temp19}
+Ship Formation Control: A Guided Leader-Follower Approach\\ https://www.sciencedirect.com/science/article/pii/S1474667016415703
+
+\bibitem{temp20}
+Tracking Algorithm Using Leader Follower Approach for Multi Robots\\
+https://www.sciencedirect.com/science/article/pii/S1877705813017384
+
+\bibitem{temp21}
+A leader-follower approach to formation control of multiple non-holonomic mobile robots\\
+https://ieeexplore.ieee.org/document/6596390
+
+
+
+
+
 
 \end{thebibliography}
 
