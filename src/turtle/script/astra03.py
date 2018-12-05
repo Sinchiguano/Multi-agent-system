@@ -31,27 +31,7 @@ bridge = CvBridge()
 cv_image1=None
 cv_image2=None
 pts=None
-
-def show_stl_file():
-    """
-    STL is a file format native to the stereolithography CAD software created by 3D Systems.
-    """
-    from stl import mesh
-    from mpl_toolkits import mplot3d
-    from matplotlib import pyplot
-
-    # Create a new plot
-    figure = pyplot.figure()
-    axes = mplot3d.Axes3D(figure)
-
-    # Load the STL files and add the vectors to the plot
-    your_mesh = mesh.Mesh.from_file('coke.stl')
-    axes.add_collection3d(mplot3d.art3d.Poly3DCollection(your_mesh.vectors))
-
-    # Auto scale to the mesh size
-    scale = your_mesh.points.flatten(-1)
-    axes.auto_scale_xyz(scale, scale, scale)
-    pyplot.show()
+pc=None
 
 def callback_rgb(data):
     global cv_image1
@@ -70,14 +50,22 @@ def callback_depth(data):
         print()
 def callback_pointCloud(data):
     global pts
-
-    pts = list(pc2.read_points(data, skip_nans=False, field_names=("x", "y", "z")))
-    if len(pts) == 307200:
-        pts= np.array(list(pts)).reshape((480,640,3))
+    global pc
     # print(len(pts))
-    # print(pts.shape)
     # print(type(pts))
     # print(pts[0:1])
+    if data is not None:
+        print('there is something at least!!!')
+        pts = list(pc2.read_points(data, skip_nans=False, field_names=("x", "y", "z")))
+        temp=pc2.read_points(data, skip_nans=False, field_names=("x", "y", "z"))
+        print('i am here:',type(temp))
+        if len(pts) == 307200:
+            pc = np.array(list(pts)).reshape((480,640,3))
+        elif len(pts) == 172800:
+            pc = np.array(list(pts)).reshape((360,480,3))
+    else:
+        rospy.logerr("No point cloud image, did you initialize Turtlebot(pc=True)")
+    print(type(pc))
 
 def infoDepthCallback(msg):
     #print('received info from depth camera!!!',msg)

@@ -197,16 +197,3 @@ if __name__ == '__main__':
         main()
     except rospy.ROSInterruptException:
         pass
-
-# #we update the initial_turtlebot_odom_pose using the turtlebot_odom_pose global variable updated in the callback function poseCallback
-# #we will use deepcopy() to avoid pointers confusion
-# initial_pose2 = copy.deepcopy(current_position2)
-# distance_move2=0.0
-# tmpx=0.0
-# tmpy=0.0
-#
-#
-# # tmpx=current_position2.x-initial_pose2.x
-# # tmpy=current_position2.y-initial_pose2.y
-# # distance_move2=distance_move2+0.5*abs(sqrt(pow(tmpx,2)+pow(tmpy,2)))
-# # print(distance_move2)
