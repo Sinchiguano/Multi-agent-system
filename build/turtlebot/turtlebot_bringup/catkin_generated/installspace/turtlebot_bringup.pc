@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: turtlebot_bringup
-Description: Description of turtlebot_bringup
-Version: 2.4.2
-Cflags: 
-Libs: -L/home/casch/turtle/install/lib 
-Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: map_server
-Description: Description of map_server
-Version: 1.16.2
-Cflags: -I/home/casch/turtle/install/include
-Libs: -L/home/casch/turtle/install/lib -lmap_server_image_loader
-Requires: roscpp nav_msgs tf2

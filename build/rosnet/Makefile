@@ -56,60 +56,16 @@ CMAKE_BINARY_DIR = /home/casch/turtle/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : install/strip/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -122,16 +78,60 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target test
+test/fast: test
 
-.PHONY : rebuild_cache/fast
+.PHONY : test/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,19 +166,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+roscpp_generate_messages_py: rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_py
 
 # fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
+roscpp_generate_messages_py/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_py.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_py.dir/build
+.PHONY : roscpp_generate_messages_py/fast
 
 # Convenience name for target.
 rosnet/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
@@ -196,6 +196,21 @@ roscpp_generate_messages_eus/fast:
 .PHONY : roscpp_generate_messages_eus/fast
 
 # Convenience name for target.
+rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+# Convenience name for target.
 rosnet/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
 	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : rosnet/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
@@ -209,6 +224,21 @@ rosgraph_msgs_generate_messages_cpp: rosnet/CMakeFiles/rosgraph_msgs_generate_me
 rosgraph_msgs_generate_messages_cpp/fast:
 	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make rosnet/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_lisp: rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : std_msgs_generate_messages_lisp
+
+# fast build rule for target.
+std_msgs_generate_messages_lisp/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make rosnet/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 rosnet/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -256,19 +286,19 @@ rosgraph_msgs_generate_messages_lisp/fast:
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
-rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule:
-	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
-.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
+rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: rosnet/CMakeFiles/roscpp_generate_messages_py.dir/rule
+std_msgs_generate_messages_cpp: rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : roscpp_generate_messages_py
+.PHONY : std_msgs_generate_messages_cpp
 
 # fast build rule for target.
-roscpp_generate_messages_py/fast:
-	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_py.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
+std_msgs_generate_messages_cpp/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make rosnet/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 rosnet/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
@@ -301,19 +331,64 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_lisp: rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+std_msgs_generate_messages_eus: rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
-.PHONY : roscpp_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_eus
 
 # fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+std_msgs_generate_messages_eus/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make rosnet/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+.PHONY : std_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_nodejs: rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make rosnet/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make rosnet/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/casch/turtle/build && $(MAKE) -f CMakeFiles/Makefile2 rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	cd /home/casch/turtle/build && $(MAKE) -f rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/build.make rosnet/CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
 
 # Help Target
 help:
@@ -321,23 +396,28 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... rebuild_cache"
+	@echo "... install/local"
+	@echo "... test"
+	@echo "... list_install_components"
+	@echo "... roscpp_generate_messages_py"
 	@echo "... install/strip"
-	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_eus"
+	@echo "... edit_cache"
+	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... install"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... list_install_components"
+	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... install/local"
-	@echo "... rebuild_cache"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_py"
 .PHONY : help
 
 

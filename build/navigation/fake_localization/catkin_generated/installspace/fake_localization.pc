@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: fake_localization
-Description: Description of fake_localization
-Version: 1.16.2
-Cflags: 
-Libs: -L/home/casch/turtle/install/lib 
-Requires: geometry_msgs nav_msgs roscpp rospy

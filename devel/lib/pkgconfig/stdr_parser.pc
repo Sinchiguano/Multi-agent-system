@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/devel
-
-Name: stdr_parser
-Description: Description of stdr_parser
-Version: 0.3.2
-Cflags: -I/home/casch/turtle/src/stdr_simulator/stdr_parser/include -I/usr/include
-Libs: -L/home/casch/turtle/devel/lib -lstdr_parser /usr/lib/x86_64-linux-gnu/libtinyxml.so
-Requires: roscpp roslib stdr_msgs

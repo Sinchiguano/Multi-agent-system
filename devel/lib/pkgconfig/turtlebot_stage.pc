@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/devel
-
-Name: turtlebot_stage
-Description: Description of turtlebot_stage
-Version: 2.2.3
-Cflags: 
-Libs: -L/home/casch/turtle/devel/lib 
-Requires: 

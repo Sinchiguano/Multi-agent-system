@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: turtlebot_gazebo
-Description: Description of turtlebot_gazebo
-Version: 2.2.3
-Cflags: 
-Libs: -L/home/casch/turtle/install/lib 
-Requires: 

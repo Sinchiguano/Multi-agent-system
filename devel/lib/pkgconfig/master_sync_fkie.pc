@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/devel
-
-Name: master_sync_fkie
-Description: Description of master_sync_fkie
-Version: 0.8.2
-Cflags: 
-Libs: -L/home/casch/turtle/devel/lib 
-Requires: master_discovery_fkie multimaster_msgs_fkie

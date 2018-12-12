@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: multimaster_msgs_fkie
-Description: Description of multimaster_msgs_fkie
-Version: 0.8.2
-Cflags: -I/home/casch/turtle/install/include
-Libs: -L/home/casch/turtle/install/lib 
-Requires: message_runtime std_msgs

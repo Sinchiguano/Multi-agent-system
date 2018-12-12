@@ -1,8 +1,0 @@
-prefix=/home/casch/turtle/install
-
-Name: move_slow_and_clear
-Description: Description of move_slow_and_clear
-Version: 1.16.2
-Cflags: -I/home/casch/turtle/install/include
-Libs: -L/home/casch/turtle/install/lib -lmove_slow_and_clear
-Requires: geometry_msgs nav_core pluginlib roscpp
