@@ -1,8 +1,0 @@
-<launch>
-  <node name="master_discovery" pkg="master_discovery_fkie" type="master_discovery">
-  </node>
-  <node name="master_sync" pkg="master_syn_fkie" type="master_syn">
-  </node>
-
-</launch>
-   
